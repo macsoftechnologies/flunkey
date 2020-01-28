@@ -137,7 +137,7 @@ router.post('/sendOtp', function (req, res) {
           }
         })
       } else {
-        resp.json({ status: 404, message: "user not found" });
+        res.json({ status: 404, message: "user not found" });
 
       }
     }
