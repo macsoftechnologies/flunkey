@@ -120,7 +120,7 @@ router.post('/signup', async (req, res) => {
 })
 router.post('/sendOtp', function (req, res) {
 
-  User.findOne({ $and: [{ mobileNumber: req.body.mobileNumber }, { status: "1" }] }, function (err, resDoc) {
+  User.findOne({ $and: [{ mobileNumber: req.body.mobileNumber }] }, function (err, resDoc) {
     if (err) { res.send(err) }
     else {
       if (resDoc) {
