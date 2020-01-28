@@ -12,6 +12,7 @@ var MongoClient = require('mongodb').MongoClient;
 mongoose.connect(db, { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify: true })
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var appuserAuthentication = require('./routes/authentication')
 
 var app = express();
 // view engine setup
@@ -24,13 +25,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+app.use('/api/partners', usersRouter);
+app.use('/api/users', appuserAuthentication);
+
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function(err, req, res, next) {

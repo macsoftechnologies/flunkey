@@ -21,10 +21,10 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage });
 
-/* GET users listing. */
-router.get('/user', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// /* GET users listing. */
+// router.get('/user', function(req, res, next) {
+//   res.send('respond with a resource');
+// });
 
 router.post('/signup', upload.any(), (req, res) => {  
   //res.send({ IdType: req.body.IdType, IDImage: req.files,IDNumber: req.body.personalAddress.flatNo});
