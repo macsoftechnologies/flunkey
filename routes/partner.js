@@ -15,8 +15,8 @@ var arrayList = require('array-list')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // http://54.157.52.31:4000/images/driver/1572851647124.jpg
-    const dir = './public/images/user';
+    // http://54.157.52.31:4000/images/driver/1572851647124.jpg 
+    const dir = './public/images';
     mkdirp(dir, err => cb(err, dir))
   },
   filename: function (req, file, cb) {
@@ -133,84 +133,9 @@ router.post('/signup', upload.any(), (req, res) => {
       }
     });
 
-  //   router.get('/userList', (req, res) => {
-  //     let list1 = [];
-  //     User.find((err, CaRes) => {
-  //         if (err) { res.send(err) }
-  //         else {
-  //           var fullUrl = req.protocol + '://' + req.get('host')+'/images/user/';
-  //           let list = [];
-            
-  //           for (let i = 0; i < CaRes.length; i++) {
-  //             var userId1 = CaRes[i]._id;
-  //             var userData = CaRes[i];
-  //             var genderName = userData.Gender;
-  //             var addressDocument = {};
-
-  //             UserAddress.findOne({ $and: [{ userId: userId1 }] }, async (err, document) => {
-  //               if (err) { res.send(err) }
-  //               else {
-  //                 if (document) {
-  //                   UserConformationDetails.findOne({ $and: [{ userId: document.userId }] }, async (err, userConformationDetails) => {
-  //                     if (err) { res.send(err) }
-  //                     else {
-  //                       console.log("userConformationDetails",document.userId);
-                        
-  //                       if (userConformationDetails) {
-  //                         addressDocument = {
-  //                           id : userId1,
-  //                           IDImage : userData.IDImage,
-  //                           IDNumber : userData.IDNumber,
-  //                           UserName : userData.UserName,
-  //                           gender : genderName,
-  //                           IdType : userData.IdType,
-  //                           AadharNumber : userData.AadharNumber,
-  //                           DOB : userData.DOB,
-  //                           sonof : userData.so,
-  //                           created_at : userData.created_at,
-  //                           currentAddress : document.currentAddress,
-  //                           PermenentAddress : document.PermenentAddress,
-  //                           isCerification : userConformationDetails.isCerification,
-  //                           Qualification : userConformationDetails.Qualification,
-  //                           Experience : userConformationDetails.Experience,
-  //                           mobileNumber : userConformationDetails.mobileNumber,
-  //                           WhatsappNumber : userConformationDetails.WhatsappNumber,
-  //                           typeOfProfissianal : userConformationDetails.typeOfProfissianal,
-  //                           serviveArea : userConformationDetails.serviveArea
-  //                         }
-
-  //                         console.log("addressDocument",addressDocument);
-
-  //                       } else{
-  //                         console.log("addressDocument"," null");
-  //                       }
-  //                     }
-  //                   })                    
-  //                   console.log("Data" +i,list);
-                    
-  //                 } else {
-  //                   console.log("Data" +i,list);
-  //                   // res.json({ status: 201, message: "Failed to load data"})
-  //                 }
-  //               }
-  //             })
-  //             list.push(addressDocument);
-  //           }
-  //           console.log("Data2",list);
-  //           res.json({ status: 200, message: "User List",baseURL: fullUrl,result : list})
-  //           // for(var i = 0; i< CaRes.length;i++){
-  //           //   res.json({ status: 200, message: "Gender Types",baseURL: fullUrl, result: CaRes[i]._id })
-  //           // }
-  //         }
-  //     })
-  // })
-
-
-
  router.get('/userList' , (req , res) =>{
 
-   
-
+  
   User.aggregate([
   
     {
