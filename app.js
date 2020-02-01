@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', partnerRouter);
 app.use('/api/users', userAuthentication);
 // app.use('api/master', master);
-app.use('api/master', master);
+app.use('/master', master);
 
 
 
