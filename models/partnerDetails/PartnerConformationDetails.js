@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
-var userDetailsSchema = new schema({
+var mongoSchema = new schema({
     userId : {type : String},
     isCerification : {type : String},
     Qualification : {type : String},
@@ -13,4 +13,4 @@ var userDetailsSchema = new schema({
     created_at : {type : String}
     });
     
-    module.exports = mongoose.model('User_conformation_details' , userDetailsSchema , 'User_conformation_details')
+    module.exports = mongoose.model('partner_conformation_details' , mongoSchema , 'partner_conformation_details')

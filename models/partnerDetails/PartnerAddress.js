@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
-var userDetailsSchema = new schema({
+var mongoSchema = new schema({
   
     userId : {type : String},
     currentAddress : {},
@@ -9,4 +9,4 @@ var userDetailsSchema = new schema({
     created_at : {type : String}
     });
     
-    module.exports = mongoose.model('user_address' , userDetailsSchema , 'user_address')
+    module.exports = mongoose.model('partner_address' , mongoSchema , 'partner_address')

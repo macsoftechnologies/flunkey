@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
-var driverDetailsSchema = new schema({
+var mongoSchema = new schema({
   
     IDImage : {},
     IdType : {type : String},
@@ -14,4 +14,4 @@ var driverDetailsSchema = new schema({
     created_at : {type : String}
     });
     
-    module.exports = mongoose.model('user_details' , driverDetailsSchema , 'user_details')
+    module.exports = mongoose.model('paratner_details' , mongoSchema , 'paratner_details')

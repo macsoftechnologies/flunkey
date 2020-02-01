@@ -11,8 +11,9 @@ var MongoClient = require('mongodb').MongoClient;
 
 mongoose.connect(db, { useNewUrlParser: true , useUnifiedTopology: true , useFindAndModify: true })
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var appuserAuthentication = require('./routes/authentication')
+var partnerRouter = require('./routes/partner');
+var userAuthentication = require('./routes/authentication');
+var master = require('./routes/master');
 
 var app = express();
 // view engine setup
@@ -26,8 +27,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
-app.use('/api/partners', usersRouter);
-app.use('/api/users', appuserAuthentication);
+// app.use('/api/partners', partnerRouter);
+app.use('/users', partnerRouter);
+app.use('/api/users', userAuthentication);
+// app.use('api/master', master);
+app.use('api/master', master);
+
 
 
 // catch 404 and forward to error handler
